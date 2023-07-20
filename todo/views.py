@@ -44,6 +44,11 @@ def update(request, task_id):
         task.due_at = make_aware(parse_datetime(request.POST["due_at"]))
         task.save()
         return redirect(detail, task_id)
+    
+    context = {
+        'task': task
+    }
+    return render(request, "todo/edit.html", context)
 
 def delete(request, task_id):
     try:
@@ -62,7 +67,3 @@ def close(request, task_id):
     task.save()
     return redirect(index)
 
-    context = {
-        "task": task
-    }
-    return render(request, "todo/edit.html", context)
