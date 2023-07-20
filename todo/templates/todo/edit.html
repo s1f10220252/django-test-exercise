@@ -21,6 +21,10 @@
             <input id="dueInput" name="due_at" type="datetime-local" value="{{ task.due_at | date:"Y-m-d H:i" }}">
         </div>
         <div>
+            <label for="memoInput">Memo</label><br>
+            <input id="memoInput" name="memo" type="text" placeholder="Input memo" value="{{ task.memo }}">
+        </div>
+        <div>
             <button type="submit">Submit</button>
         </div>
     </form>
