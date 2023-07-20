@@ -1,0 +1,50 @@
+p {
+    border-bottom: 3px solid;
+}
+
+.content {
+    display: inline-block;
+    border-bottom: 2px solid #fb5144;
+    padding-right: 50px;
+    padding-left: 25px;
+    font-size: 1.5em;
+}
+
+#p_button {
+    text-align: center;
+}
+
+#button_style {
+    width: 10%;
+    padding: 8px;
+    margin-left:  150px;
+    margin-bottom: 30px;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+}
+
+#titleInput {
+    resize: none;
+    width: 500px;
+    height: 50px;
+    margin-left: 10%;
+}
+
+#dueInput{
+    resize: none;
+    width: 500px;
+    height: 50px;
+    margin-left: 10%;
+}
+
+#memoInput{
+    resize: none;
+    width: 500px;
+    height: 50px;
+    margin-left: 10%;
+}
+
+.inputArea {
+    padding: 10px;
+}

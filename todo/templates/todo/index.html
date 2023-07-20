@@ -6,27 +6,34 @@
     <title>To Do Application</title>
     <meta charset="UTF-8">
     <meta name="author" content="INIAD">
+    <link href="{% static 'todo/css/index.css' %}" rel="stylesheet">
   </head>
 
   <body>
-    <h1>Sample To Do Application</h1>
+    <h1 align="center">Sample To Do Application</h1>
     <p>You can submit tasks from the following form.</p>
     <form action="{% url 'index' %}" method="post">
       {% csrf_token %}
       <div>
-        <label for="titleInput">Title</label><br>
-        <input id="titleInput" name="title" type="text" placeholder="Input title">
+        <label for="titleInput" class="content">Title</label><br>
+        <div class="inputArea">
+          <input id="titleInput" name="title" type="text" placeholder="Input title">
+        </div>
       </div>
       <div>
-        <label for="dueInput">Due at:</label><br>
-        <input id="dueInput" name="due_at" type="datetime-local">
+        <label for="dueInput" class="content">Due at:</label><br>
+        <div class="inputArea">  
+          <input id="dueInput" name="due_at" type="datetime-local">
+        </div>
       </div>
       <div>
-        <label for="memoInput">Memo</label><br>
-        <input id="memoInput" name="memo" type="text" placeholder="Input memo">
+        <label for="memoInput" class="content">Memo</label><br>
+        <div class="inputArea">
+          <input id="memoInput" name="memo" type="text" placeholder="Input memo">
+        </div>
       </div>
-      <div>
-        <button type="submit">Submit</button>
+      <div id="p_button">
+        <button type="submit" id="button_style">Submit</button>
       </div>
     </form>
     <br>
