@@ -5,11 +5,19 @@ from django.utils import timezone
 
 
 class Task(models.Model):
+    DIFFICULTY_CHOICES = [
+        (1, 'Easy'),
+        (2, 'Moderate'),
+        (3, 'Intermediate'),
+        (4, 'Challenging'),
+        (5, 'Difficult'),
+    ]
+
     title = models.CharField(max_length=100)
     completed = models.BooleanField(default=False)
     posted_at = models.DateTimeField(default=timezone.now)
     due_at = models.DateTimeField(null=True, blank=True)
-    memo = models.CharField(max_length=200, blank=True, null=True)
+    difficulty = models.IntegerField(choices=DIFFICULTY_CHOICES, default=3)
 
     def is_overdue(self, dt):
         if self.due_at is None:

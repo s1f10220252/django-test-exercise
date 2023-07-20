@@ -21,6 +21,7 @@
       <li>Status: Not Completed</li>
       {% endif %}
       <li>Memo: {{ task.memo }}</li>
+      <li>Difficulty: {{ task.get_difficulty_display }}</li>
     </ul>
 
     <div>
