@@ -22,6 +22,10 @@
         <input id="dueInput" name="due_at" type="datetime-local">
       </div>
       <div>
+        <label for="memoInput">Memo</label><br>
+        <input id="memoInput" name="memo" type="text" placeholder="Input memo">
+      </div>
+      <div>
         <button type="submit">Submit</button>
       </div>
     </form>
@@ -45,6 +49,7 @@
         {% else %}
         <li>Status: Not Completed</li>
         {% endif %}
+        <li>{{ task.memo }}</li>
       </ul>
     </div>
     {% endfor %}
