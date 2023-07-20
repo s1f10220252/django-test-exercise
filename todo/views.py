@@ -9,9 +9,12 @@ from todo.models import Task
 
 def index(request):
     if request.method == 'POST':
-        task = Task(title=request.POST['title'],
-                    due_at=make_aware(parse_datetime(request.POST['due_at'])),
-                    memo=request.POST["memo"])
+        task = Task(
+            title=request.POST['title'],
+            due_at=make_aware(parse_datetime(request.POST['due_at'])),
+            memo=request.POST["memo"],
+            difficulty=int(request.POST["difficulty"])
+        )
         task.save()
 
     if request.GET.get('order') == 'due':
@@ -44,9 +47,10 @@ def update(request, task_id):
         task.title = request.POST["title"]
         task.due_at = make_aware(parse_datetime(request.POST["due_at"]))
         task.memo = request.POST["memo"]
+        task.difficulty = int(request.POST["difficulty"])
         task.save()
         return redirect(detail, task_id)
-    
+
     context = {
         'task': task
     }

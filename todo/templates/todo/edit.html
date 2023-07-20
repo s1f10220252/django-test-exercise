@@ -25,6 +25,14 @@
             <input id="memoInput" name="memo" type="text" placeholder="Input memo" value="{{ task.memo }}">
         </div>
         <div>
+            <label for="difficultySelect">Difficulty:</label><br>
+            <select id="difficultySelect" name="difficulty">
+                {% for choice in task.DIFFICULTY_CHOICES %}
+                <option value="{{ choice.0 }}" {% if task.difficulty == choice.0 %}selected{% endif %}>{{ choice.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
             <button type="submit">Submit</button>
         </div>
     </form>
