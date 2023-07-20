@@ -17,7 +17,9 @@ class Task(models.Model):
     completed = models.BooleanField(default=False)
     posted_at = models.DateTimeField(default=timezone.now)
     due_at = models.DateTimeField(null=True, blank=True)
-    difficulty = models.IntegerField(choices=DIFFICULTY_CHOICES, default=3)
+    task_memo = models.CharField(max_length=200, blank=True, null=True)
+    memo = models.CharField(max_length=200, blank=True, null=True)
+    difficulty = models.IntegerField(choices=DIFFICULTY_CHOICES, default=1)
 
     def is_overdue(self, dt):
         if self.due_at is None:
