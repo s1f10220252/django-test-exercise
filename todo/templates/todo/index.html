@@ -46,6 +46,15 @@
         <li>Status: Not Completed</li>
         {% endif %}
       </ul>
+      {% if task.remaining_time %}
+        {% if task.completed %}
+          <h3>お疲れさまでした</h3>
+        {% else %}
+          <h3>締め切りまで：{{ task.remaining_time }}</h3>
+        {% endif %}
+      {% else %}
+        <h3>締め切りを過ぎました</h3>
+      {% endif %}
     </div>
     {% endfor %}
   </body>
