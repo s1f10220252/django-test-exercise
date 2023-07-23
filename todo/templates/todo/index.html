@@ -38,37 +38,45 @@
     </form>
     <br>
 
-    <div>
+    <div class="sort">
       <a href="{% url 'index' %}?order=due">Sort by Due Date</a> |
       <a href="{% url 'index' %}?order=post">Sort by Posted Date</a>
     </div>
 
-    {% for task in tasks %}
-    <div class="text">
-      <h2><a href="{% url 'detail' task.id %}">{{ task.title }}</a></h2>
-      <ul>
-        <li>Posted at: {{ task.posted_at }}</li>
-        {% if task.due_at %} 
-        <li>Due at: {{ task.due_at }}</li>
-        {% endif %}
-        {% if task.completed %} 
-        <li>Status: Completed</li>
-        {% else %}
-        <li>Status: Not Completed</li>
-        {% endif %}
-        <li>Memo: {{ task.memo }}</li>
-      </ul>
-      {% if task.remaining_time %}
-        {% if task.completed %}
-          <h3>お疲れさまでした</h3>
-        {% else %}
-          <h3>締め切りまで：{{ task.remaining_time }}</h3>
-        {% endif %}
-      {% else %}
-        <h3>締め切りを過ぎました</h3>
-      {% endif %}
+    <div class="todos">
+      <h1>Tasks</h1>
+      {% for task in tasks %}
+      <div class="todo">
+        <div class="text">
+          <h2><a href="{% url 'detail' task.id %}">{{ task.title }}</a></h2>
+          <ul>
+            <li>Posted at: {{ task.posted_at }}</li>
+            {% if task.due_at %} 
+            <li>Due at: {{ task.due_at }}</li>
+            {% endif %}
+            {% if task.completed %} 
+            <li>Status: Completed</li>
+            {% else %}
+            <li>Status: Not Completed</li>
+            {% endif %}
+            <li>Memo: {{ task.memo }}</li>
+          </ul>
+          <div class="message">
+            {% if task.remaining_time %}
+              {% if task.completed %}
+                <strong>お疲れさまでした</strong>
+              {% else %}
+                <strong>締め切りまで：{{ task.remaining_time }}</strong>
+              {% endif %}
+            {% else %}
+              <strong>締め切りを過ぎました</strong>
+            {% endif %}
+          </div>
+        </div>
+        <br>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </body>
 
 </html>

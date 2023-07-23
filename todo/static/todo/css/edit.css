@@ -49,26 +49,7 @@ p {
     padding: 10px;
 }
 
-.sort {
-    text-align: center;
-}
-
-.todos {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    border: dashed 2px #5b8bd0;
-}
-
-.todo {
-    margin: 0; 
-    padding: 0;
-} /*nakami*/
-
-.text {
-    background-color:#e1e9f2;
-    padding: 0.5em 1em 1em 0.5em;
-}
-
-.message {
+.link {
     text-align: right;
+    margin-right: 10%;
 }
